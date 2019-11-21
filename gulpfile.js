@@ -22,10 +22,10 @@ gulp.task('styles', function() {
 	// return gulp.src('app/'+syntax+'/**/*.'+syntax+'')
 	return gulp.src('src/sass/**/*.sass')
 	.pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
-	.pipe(rename({ suffix: '.min', prefix : '' }))
+	.pipe(rename({ suffix: '.gcmq', prefix : '' }))
 	.pipe(autoprefixer(['last 5 versions']))
 	// .pipe(cleancss( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
-	.pipe(gulp.dest('src/css')) // папака в которую складывают уже готовые css стили
+	.pipe(gulp.dest('src/css'))
 	.pipe(browserSync.stream())
 });
 
@@ -41,6 +41,7 @@ gulp.task('pug', function(){
 gulp.task('gcmq', async function () {
     gulp.src('src/css/main.gcmq.css')
         .pipe(gcmq())
+        .pipe(rename("main.css"))
         .pipe(gulp.dest('dist/css/'));
 });
 
@@ -55,11 +56,11 @@ gulp.task('copy-font', function() {
 });
 
 
-gulp.task('rename', function() {
-    return gulp.src('src/css/main.gcmq.css')
-    .pipe(rename("main.css"))
-    .pipe(gulp.dest('./dist/css'));
-});
+// gulp.task('rename', function() {
+//     return gulp.src('src/css/main.gcmq.css')
+//     .pipe(rename("main.css"))
+//     .pipe(gulp.dest('./dist/css'));
+// });
 
 gulp.task('clean', function () {
     return gulp.src('./dist', {read: false})
@@ -68,9 +69,9 @@ gulp.task('clean', function () {
 
 gulp.task('watch', function() {
     gulp.watch(['src/sass/**/*.sass', './src/pug/modules/**/*.sass'], gulp.parallel('styles'));
-    gulp.watch(['src/css/main.min.css'], gulp.parallel('gcmq'));
+    gulp.watch(['src/css/main.gcmq.css'], gulp.parallel('gcmq'));
 	gulp.watch('src/pug/**/*.pug', gulp.parallel('pug'));
 });
 
-gulp.task('default', gulp.parallel('styles', 'gcmq', 'rename', 'pug', 'browser-sync', 'watch'));
+gulp.task('default', gulp.parallel('styles', 'gcmq', 'pug', 'browser-sync', 'watch'));
 gulp.task('copy', gulp.parallel('copy-img', 'copy-font'));
