@@ -7,6 +7,8 @@ var rename 		    = require('gulp-rename');
 var clean           = require('gulp-clean');
 var autoprefixer 	= require('gulp-autoprefixer');
 var gcmq 	  	 	= require('gulp-group-css-media-queries');
+var concat          = require('gulp-concat');
+let uglify          = require('gulp-uglify-es').default;
 
 
 // Static server
@@ -37,6 +39,18 @@ gulp.task('pug', function(){
         .pipe(gulp.dest('dist/'))
         .pipe(browserSync.reload({stream: true}))
 });
+
+// gulp.task('scripts', function() {
+// 	return gulp.src([
+// 		// 'node_modules/jquery/dist/jquery.min.js', // Optional jQuery
+// 		'src/js/navMenu.js', // JS library example
+// 		// 'app/js/_custom.js', // Always at the end
+// 		])
+// 	.pipe(concat('scripts.min.js'))
+// 	.pipe(uglify()) // Mifify js (opt.)
+// 	.pipe(gulp.dest('dist/js'))
+// 	.pipe(browserSync.reload({ stream: true }))
+// });
 
 gulp.task('gcmq', async function () {
     gulp.src('src/css/main.gcmq.css')
