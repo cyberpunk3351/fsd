@@ -46,7 +46,7 @@ gulp.task('gcmq', async function () {
 });
 
 gulp.task('copy-img', function() {
-    return gulp.src('./src/img/*.svg')
+    return gulp.src('./src/img/*.{png,svg,jpg}')
         .pipe(gulp.dest('./dist/imgs'));
 });
 
