@@ -29,6 +29,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: "montserrat-regular", sans-serif;
+}
+
 h1 {
   font-size: 24px;
   color: #1f2041;
@@ -85,4 +89,28 @@ nav ul {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
+}
+
+.example_b {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #60a3bc;
+  padding: 20px;
+  border-radius: 50px;
+  display: inline-block;
+  border: none;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.headMenu {
+  font-size: 14px;
+  color: rgba(31, 32, 65, 0.5);
+}
+
+.headMenu li {
+  width: 100px;
+  text-align: center;
 }
