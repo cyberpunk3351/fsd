@@ -1,0 +1,136 @@
+header
+    top: 0
+    left: 0
+    padding: 0 100px
+    background: #fff
+    width: 100%
+    box-sizing: border-box
+    .logo
+        color: $dark-shade-half
+        height: 50px
+        line-height: 50px
+        font-size: 24px
+        float: left
+        font-weight: bold
+    nav
+        float: right
+        background: #fff
+        ul 
+            margin: 0
+            padding: 0
+            display: flex
+
+            li
+                list-style: none
+                position: relative
+                transition: 0.5s
+                &.sub-menu:before
+                    content: '\f078'
+                    font-family: fontAwesome
+                    position: absolute
+                    line-height: 50px
+                    color: $dark-shade-half
+                    right: 2px
+                &.active.sub-menu:before
+                    content: '\f077'
+                ul
+                    position: absolute
+                    left: 0
+                    background: #f3f3f5
+                    display: none
+                    li 
+                        display: block
+                        width: 200px
+                        transition: 0.5s
+                a
+                    height: 50px
+                    font-size: 14px
+                    line-height: 50px
+                    padding: 0 20px
+                    color: $dark-shade-half
+                    text-decoration: none
+                    display: block
+                    transition: 0.5s
+                    &:hover, &.active
+                        color: #fff
+                        background: $purple
+
+.navEnter
+    span
+        border: 2px solid $purple
+        border-radius: 22px
+        padding: 5px 18px
+        color: $purple
+        font-weight: bold
+        &:hover, &.active
+            color: #fff
+            background: $purple
+    a 
+        &:hover, &.active
+            color: none
+            background: none
+
+.navReg
+    span
+        border: 2px solid $purple
+        border-radius: 22px
+        padding: 5px 18px
+        color: #fff
+        background: $purple
+        font-weight: bold
+        &:hover, &.active
+            color: $purple
+            background: #fff
+    a 
+        &:hover, &.active
+            color: none
+            background: none
+header nav ul li.active ul 
+    display: block
+    transition: 0.5s 
+
+.menu-toggle
+    color: $dark-shade-half
+    float: right
+    line-height: 50px
+    font-size: 24px
+    cursor: pointer
+    display: none
+    // transition: 0.5s
+
+@media (max-width: 991px)
+    .container
+        width: 100%
+        position: relative
+        margin-right: auto
+        margin-left: auto
+    header
+        padding: 0 20px
+        nav
+            // display: none
+            position: absolute
+            width: 100%
+            height: calc( 100vh - 50px )
+            // background: #333 
+            top: 50px
+            left: -100%
+            transition: 0.5s
+            &.active
+                left: 0
+            ul
+                display: block
+                text-align: center           
+                a 
+                    border-bottom: 1px solid rgba(0, 0, 0, .2)
+                li 
+                    &.sub-menu:before
+                        right: 10px
+    .menu-toggle
+        display: block
+
+    header nav ul li.active ul 
+        position: relative
+        background: #fff
+
+    header nav ul li ul li
+        width: 100%

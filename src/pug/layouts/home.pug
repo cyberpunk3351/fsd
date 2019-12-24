@@ -4,13 +4,15 @@ html
         title= title
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1")
+        link(href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
         link(rel="stylesheet" href="/css/main.css") 
         block head_end
 	
     body
-        include ../modules/header/header
-        //- include ../modules/nav/nav
+        //- include ../modules/header/header
+        include ../modules/navigation/nav2
         block content
 		
     block body_end
+        script(type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js")
         script(type="text/javascript" src="/js/scripts.min.js")
